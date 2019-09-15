@@ -44758,7 +44758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         console.log('mounted');
-        axios.get('localhost:8000/api/data').then(function (response) {
+        axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
             return _this.list = response;
         });
     }
