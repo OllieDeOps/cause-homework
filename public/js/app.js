@@ -44792,18 +44792,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         handleSubmit: function handleSubmit() {
             console.log({
-                first_name: this.first_name,
-                last_name: this.last_name,
-                age: this.age,
-                email: this.email,
-                secret: this.secret
+                "data": [{
+                    "first_name": this.first_name,
+                    "last_name": this.last_name,
+                    "age": this.age,
+                    "email": this.email,
+                    "secret": this.secret
+                }]
             });
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
-                first_name: this.first_name,
-                last_name: this.last_name,
-                age: this.age,
-                email: this.email,
-                secret: this.secret
+                "data": [{
+                    "first_name": this.first_name,
+                    "last_name": this.last_name,
+                    "age": this.age,
+                    "email": this.email,
+                    "secret": this.secret
+                }]
             }).then(function (response) {
                 console.log(response);
             }).catch(function (error) {

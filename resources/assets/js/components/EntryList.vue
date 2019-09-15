@@ -57,19 +57,25 @@
         },
         methods: {
             handleSubmit() {
-                console.log({
-                    first_name: this.first_name,
-                    last_name: this.last_name,
-                    age: this.age,
-                    email: this.email,
-                    secret: this.secret
+                console.log(
+                {
+                    "data":[{
+                        "first_name":this.first_name,
+                        "last_name":this.last_name,
+                        "age":this.age,
+                        "email":this.email,
+                        "secret":this.secret
+                    }]
                 })
-                axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
-                    first_name: this.first_name,
-                    last_name: this.last_name,
-                    age: this.age,
-                    email: this.email,
-                    secret: this.secret
+                axios.post('http://dry-ocean-48302.herokuapp.com/api/data',
+                {
+                    "data":[{
+                        "first_name":this.first_name,
+                        "last_name":this.last_name,
+                        "age":this.age,
+                        "email":this.email,
+                        "secret":this.secret
+                    }]
                 })
                 .then(function (response) {
                     console.log(response)
