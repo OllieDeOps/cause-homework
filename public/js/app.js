@@ -44747,6 +44747,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44777,12 +44781,22 @@ var render = function() {
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
-            _vm._v("Example Component")
+            _vm._v("List of Entries")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
-            _vm._v(
-              "\n                    " + _vm._s(_vm.list) + "\n                "
+            _c(
+              "ul",
+              _vm._l(_vm.list, function(item) {
+                return _c("li", { key: item }, [
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(item) +
+                      "\n                        "
+                  )
+                ])
+              }),
+              0
             )
           ])
         ])
