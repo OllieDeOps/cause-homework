@@ -18,14 +18,14 @@
     export default {
         data () {
             return {
-                list: "filler"
+                list: null
             }
         },
         mounted() {
             console.log('mounted')
-            // axios
-            //     .get('localhost:8000/api/data')
-            //     .then(response => (this.list = response))
+            axios
+                .get('localhost:8000/api/data')
+                .then(response => (this.list = response))
         }
     }
 </script>

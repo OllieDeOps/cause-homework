@@ -44751,14 +44751,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            list: "filler"
+            list: null
         };
     },
     mounted: function mounted() {
+        var _this = this;
+
         console.log('mounted');
-        // axios
-        //     .get('localhost:8000/api/data')
-        //     .then(response => (this.list = response))
+        axios.get('localhost:8000/api/data').then(function (response) {
+            return _this.list = response;
+        });
     }
 });
 
