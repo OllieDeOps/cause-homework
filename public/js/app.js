@@ -44751,20 +44751,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            list: null
+            first_name: null,
+            last_name: null,
+            age: null,
+            email: null,
+            secret: null,
+            list: [{ "name": "morgan" }, { "name": "ollie" }]
         };
     },
-    mounted: function mounted() {
-        var _this = this;
 
+    methods: {
+        handleSubmit: function handleSubmit() {
+            axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
+                first_name: this.first_name,
+                last_name: this.last_name,
+                age: this.age,
+                email: this.email,
+                secret: this.secret
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    },
+    mounted: function mounted() {
         console.log('mounted');
-        axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-            return _this.list = response.data;
-        });
+        // axios
+        //     .get('http://dry-ocean-48302.herokuapp.com/api/data')
+        //     .then(response => (this.list = response.data))
     }
 });
 
@@ -44787,8 +44831,8 @@ var render = function() {
           _c("div", { staticClass: "panel-body" }, [
             _c(
               "ul",
-              _vm._l(_vm.list, function(item) {
-                return _c("li", { key: item }, [
+              _vm._l(_vm.list, function(item, index) {
+                return _c("li", { key: "item-" + index }, [
                   _vm._v(
                     "\n                            " +
                       _vm._s(item) +
@@ -44798,7 +44842,152 @@ var render = function() {
               }),
               0
             )
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.handleSubmit($event)
+                }
+              }
+            },
+            [
+              _c("label", [
+                _vm._v(
+                  "\n                        First Name:\n                        "
+                ),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.first_name,
+                      expression: "first_name"
+                    }
+                  ],
+                  attrs: { placeholder: "edit me" },
+                  domProps: { value: _vm.first_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.first_name = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(
+                  "\n                        Last Name:\n                        "
+                ),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.last_name,
+                      expression: "last_name"
+                    }
+                  ],
+                  attrs: { placeholder: "edit me" },
+                  domProps: { value: _vm.last_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.last_name = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(
+                  "\n                        Age:\n                        "
+                ),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.age,
+                      expression: "age"
+                    }
+                  ],
+                  attrs: { placeholder: "edit me" },
+                  domProps: { value: _vm.age },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.age = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(
+                  "\n                        Email:\n                        "
+                ),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    }
+                  ],
+                  attrs: { placeholder: "edit me" },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [
+                _vm._v(
+                  "\n                        Secret:\n                        "
+                ),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.secret,
+                      expression: "secret"
+                    }
+                  ],
+                  attrs: { placeholder: "edit me" },
+                  domProps: { value: _vm.secret },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.secret = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("button", { attrs: { type: "submit" } }, [_vm._v("Submit")])
+            ]
+          )
         ])
       ])
     ])

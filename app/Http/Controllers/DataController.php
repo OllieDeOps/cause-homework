@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Data;
 
 class DataController extends Controller
@@ -15,6 +16,7 @@ class DataController extends Controller
         foreach ($request->data as $entry) {
             array_push($emails, $entry["email"]);
             $entry["name"] = $entry["first_name"]." ".$entry["last_name"];
+            $entry["secret"] = Hash::make($entry["secret"]);
             array_push($prsdData, $entry);
         }
         $data = new Data;
