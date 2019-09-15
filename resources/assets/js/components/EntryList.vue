@@ -25,7 +25,7 @@
             console.log('mounted')
             axios
                 .get('http://dry-ocean-48302.herokuapp.com/api/data')
-                .then(response => (this.list = response))
+                .then(response => (this.list = response.data))
         }
     }
 </script>

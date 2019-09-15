@@ -44759,7 +44759,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         console.log('mounted');
         axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-            return _this.list = response;
+            return _this.list = response.data;
         });
     }
 });
