@@ -44825,6 +44825,12 @@ var entry = {
         }).catch(function (error) {
             console.log(error);
         });
+    },
+
+    filters: {
+        pretty: function pretty(value) {
+            return JSON.stringify(JSON.parse(value), null, 2);
+        }
     }
 });
 
@@ -44851,7 +44857,7 @@ var render = function() {
                 return _c("li", { key: index }, [
                   _vm._v(
                     "\n                            " +
-                      _vm._s(item) +
+                      _vm._s(item || _vm.pretty) +
                       "\n                        "
                   )
                 ])

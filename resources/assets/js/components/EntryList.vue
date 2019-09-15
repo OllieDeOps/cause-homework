@@ -8,7 +8,7 @@
                     <div class="panel-body">
                         <ul>
                             <li v-for="(item, index) in list" :key="index">
-                                {{ item }}
+                                {{ item || pretty }}
                             </li>
                         </ul>
                     </div>
@@ -93,6 +93,11 @@
                 .catch(function (error) {
                     console.log(error)
                 });
+        },
+          filters: {
+            pretty: function(value) {
+                return JSON.stringify(JSON.parse(value), null, 2);
+            }
         }
     }
 </script>
