@@ -6,7 +6,7 @@
                     <div class="panel-heading">Example Component</div>
 
                     <div class="panel-body">
-                        I'm an example component!
+                        {{ list }}
                     </div>
                 </div>
             </div>
@@ -16,8 +16,16 @@
 
 <script>
     export default {
+        data () {
+            return {
+                list: "filler"
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+            console.log('mounted')
+            // axios
+            //     .get('localhost:8000/api/data')
+            //     .then(response => (this.list = response))
         }
     }
 </script>
