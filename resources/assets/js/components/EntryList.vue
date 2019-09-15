@@ -24,7 +24,7 @@
         mounted() {
             console.log('mounted')
             axios
-                .get('localhost:8000/api/data')
+                .get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => (this.list = response))
         }
     }
