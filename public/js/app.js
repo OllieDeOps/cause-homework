@@ -44843,7 +44843,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         handleDelete: function handleDelete() {
             var _this2 = this;
 
-            axios.delete('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
+            axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + deleteByID).then(function (response) {
                 _this2.showUpdatedEntries();
             }).catch(function (error) {
                 console.log(error);
@@ -44852,7 +44852,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         showUpdatedEntries: function showUpdatedEntries() {
             var _this3 = this;
 
-            axios.get('http://dry-ocean-48302.herokuapp.com/api/data/' + deleteByID).then(function (response) {
+            axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
                 _this3.list = response.data;
             }).catch(function (error) {
                 console.log(error);
