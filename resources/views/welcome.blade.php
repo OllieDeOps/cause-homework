@@ -81,10 +81,6 @@
                 <div class="title m-b-md">
                     Morgan Espitia's CauseLabs Homework
                 </div>
-
-                <div class="links">
-                    <h4>Please Register/Login</h4>
-                </div>
             </div>
         </div>
     </body>
