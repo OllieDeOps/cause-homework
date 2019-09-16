@@ -114,7 +114,9 @@
                 }]
             },
             handleDelete() {
-                if (this.deleteByID !== 1) {
+                if (this.deleteByID == 1) {
+                    this.invalidID = true
+                } else {
                     this.waiting = true
                     this.waitMSG = "UPDATING DATA..."
                     axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID)
@@ -123,11 +125,8 @@
                     }).catch(error => {
                         console.log(error)
                     });
-                    this.deleteByID = null  
-                } else {
-                    this.invalidID = true
+                    this.deleteByID = null 
                 }
-
             },
             showUpdatedEntries() {
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')

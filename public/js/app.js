@@ -44852,7 +44852,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         handleDelete: function handleDelete() {
             var _this2 = this;
 
-            if (this.deleteByID !== 1) {
+            if (this.deleteByID == 1) {
+                this.invalidID = true;
+            } else {
                 this.waiting = true;
                 this.waitMSG = "UPDATING DATA...";
                 axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID).then(function (response) {
@@ -44861,8 +44863,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     console.log(error);
                 });
                 this.deleteByID = null;
-            } else {
-                this.invalidID = true;
             }
         },
         showUpdatedEntries: function showUpdatedEntries() {
