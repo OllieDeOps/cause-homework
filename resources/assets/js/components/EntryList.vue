@@ -122,6 +122,9 @@
             handleDelete() {
                 if (this.deleteByID == 1) {
                     this.invalidID = true
+                    setTimeout(() => {
+                        this.invalidID = false
+                    }, 3000)
                 } else {
                     this.waiting = true
                     this.waitMSG = "UPDATING DATA..."

@@ -44860,6 +44860,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (this.deleteByID == 1) {
                 this.invalidID = true;
+                setTimeout(function () {
+                    _this2.invalidID = false;
+                }, 3000);
             } else {
                 this.waiting = true;
                 this.waitMSG = "UPDATING DATA...";
