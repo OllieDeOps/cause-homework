@@ -104,6 +104,15 @@
                     secret:null
                 }]
             },
+            handleDelete() {
+                axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
+                    "deleteByID":this.deleteByID
+                }).then(response => {
+                    this.showUpdatedEntries()
+                }).catch(error => {
+                    console.log(error)
+                });
+            },
             showUpdatedEntries() {
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => {

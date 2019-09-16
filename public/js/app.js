@@ -44840,11 +44840,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 secret: null
             }];
         },
-        showUpdatedEntries: function showUpdatedEntries() {
+        handleDelete: function handleDelete() {
             var _this2 = this;
 
+            axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
+                "deleteByID": this.deleteByID
+            }).then(function (response) {
+                _this2.showUpdatedEntries();
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        showUpdatedEntries: function showUpdatedEntries() {
+            var _this3 = this;
+
             axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-                _this2.list = response.data;
+                _this3.list = response.data;
             }).catch(function (error) {
                 console.log(error);
             });

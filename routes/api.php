@@ -22,3 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('data', 'DataController@store');
 Route::get('data', 'DataController@fetch');
+Route::delete('data', 'DataController@delete');
