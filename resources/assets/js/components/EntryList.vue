@@ -105,7 +105,7 @@
                 }]
             },
             handleDelete() {
-                axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + deleteByID)
+                axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID)
                 .then(response => {
                     this.showUpdatedEntries()
                 }).catch(error => {
