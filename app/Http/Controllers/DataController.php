@@ -32,7 +32,7 @@ class DataController extends Controller
     }
 
     public function delete(Data $data) {
-        //Data::destroy(deleteByID);
-        return $data;
+        //$data->delete();
+        return $data->delete();
     }
 }
