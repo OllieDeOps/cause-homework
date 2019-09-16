@@ -94,11 +94,13 @@
             },
             showUpdatedEntries() {
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
-                .then(response => (this.list = response.data))
+                .then(response => {
+                    this.list = response.data
+                    console.log(this.list)
+                })
                 .catch(function (error) {
                     console.log(error)
                 });
-                console.log(this.list)
             }
         },
         created() {
