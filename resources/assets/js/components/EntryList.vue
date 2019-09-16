@@ -12,7 +12,7 @@
                             </li>
                         </ul>
                         <p v-if="waiting">
-                            FETCHING DATA...
+                            {{waitMSG}}
                         </p>
                     </div>
                 </div>
@@ -75,7 +75,8 @@
                 }],
                 list: null,
                 deleteByID: null,
-                waiting: true
+                waiting: true,
+                waitMSG: "FETCHING DATA..."
             }
         },
         methods: {
@@ -93,6 +94,7 @@
             },
             handleSubmit() {
                 this.waiting = true
+                this.waitMSG = "UPDATING DATA..."
                 axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                     "data":this.people
                 }).then(response => {
@@ -111,6 +113,7 @@
             },
             handleDelete() {
                 this.waiting = true
+                this.waitMSG = "UPDATING DATA..."
                 axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID)
                 .then(response => {
                     this.showUpdatedEntries()

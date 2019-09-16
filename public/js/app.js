@@ -44808,7 +44808,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }],
             list: null,
             deleteByID: null,
-            waiting: true
+            waiting: true,
+            waitMSG: "FETCHING DATA..."
         };
     },
 
@@ -44829,6 +44830,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             this.waiting = true;
+            this.waitMSG = "UPDATING DATA...";
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                 "data": this.people
             }).then(function (response) {
@@ -44849,6 +44851,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             this.waiting = true;
+            this.waitMSG = "UPDATING DATA...";
             axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID).then(function (response) {
                 _this2.showUpdatedEntries();
             }).catch(function (error) {
@@ -44910,7 +44913,9 @@ var render = function() {
             _vm.waiting
               ? _c("p", [
                   _vm._v(
-                    "\n                        UPDATING DATA...\n                    "
+                    "\n                        " +
+                      _vm._s(_vm.waitMSG) +
+                      "\n                    "
                   )
                 ])
               : _vm._e()
