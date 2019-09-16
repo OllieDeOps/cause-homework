@@ -44816,7 +44816,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
             });
 
-            this.showNewEntries();
+            this.showUpdatedEntries();
 
             this.people = [{
                 first_name: null,
@@ -44826,7 +44826,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 secret: null
             }];
         },
-        showNewEntries: function showNewEntries() {
+        showUpdatedEntries: function showUpdatedEntries() {
             var _this = this;
 
             axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
@@ -44837,13 +44837,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
-        var _this2 = this;
-
-        axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-            return _this2.list = response.data;
-        }).catch(function (error) {
-            console.log(error);
-        });
+        this.showUpdatedEntries();
     },
 
     filters: {
@@ -45063,7 +45057,7 @@ var render = function() {
               [_vm._v("Add Another Person To Entry")]
             ),
             _vm._v(" "),
-            _vm.entries.length > 1
+            _vm.people.length > 1
               ? _c(
                   "button",
                   {

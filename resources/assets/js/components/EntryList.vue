@@ -37,7 +37,7 @@
                             <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit">Submit</button>
                         </form>
                         <button v-on:click="addPerson" class="btn btn-secondary">Add Another Person To Entry</button>
-                        <button v-if="entries.length > 1" v-on:click="removePerson" class="btn btn-tertiary">Remove Person From Entry</button>
+                        <button v-if="people.length > 1" v-on:click="removePerson" class="btn btn-tertiary">Remove Person From Entry</button>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
                     console.log(error)
                 });
 
-                this.showNewEntries()
+                this.showUpdatedEntries()
 
                 this.people = [{
                     first_name:null,
@@ -92,7 +92,7 @@
                     secret:null
                 }]
             },
-            showNewEntries() {
+            showUpdatedEntries() {
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => (this.list = response.data))
                 .catch(function (error) {
@@ -101,11 +101,7 @@
             }
         },
         created() {
-            axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
-            .then(response => (this.list = response.data))
-            .catch(function (error) {
-                console.log(error)
-            });
+            this.showUpdatedEntries()
         },
         filters: {
             pretty: function(value) {
