@@ -24,23 +24,23 @@
                             <div v-for="(person, index) in people" :key="index" class="form-group" style="margin-bottom: 30px;">
                                 <div>
                                     <label>First Name:</label>
-                                    <input v-model="person.first_name">
+                                    <input v-model="person.first_name" class="details">
                                 </div>
                                 <div>
                                     <label>Last Name:</label>
-                                    <input v-model="person.last_name">
+                                    <input v-model="person.last_name" class="details">
                                 </div>
                                 <div>
                                     <label>Age:</label>
-                                    <input v-model="person.age">
+                                    <input v-model="person.age" class="details">
                                 </div>
                                 <div>
                                     <label>Email:</label>
-                                    <input v-model="person.email">
+                                    <input v-model="person.email" class="details">
                                 </div>
                                 <div>
                                     <label>Secret:</label>
-                                    <input v-model="person.secret">
+                                    <input v-model="person.secret" class="details">
                                 </div>
                             </div>
                             <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit">Submit</button>
@@ -159,3 +159,11 @@
         }
     }
 </script>
+
+<style lang="css" scoped>
+.details {
+    position: absolute;
+    left: 120px;
+    width: 300px;
+}
+</style>
