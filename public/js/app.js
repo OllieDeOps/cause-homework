@@ -44808,11 +44808,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.people.pop();
         },
         handleSubmit: function handleSubmit() {
+            var _this = this;
+
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                 "data": this.people
             }).then(function (response) {
                 console.log(response);
-                this.showUpdatedEntries();
+                _this.showUpdatedEntries();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -44826,11 +44828,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }];
         },
         showUpdatedEntries: function showUpdatedEntries() {
-            var _this = this;
+            var _this2 = this;
 
             axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-                _this.list = response.data;
-                console.log(_this.list);
+                _this2.list = response.data;
+                console.log("list", _this2.list);
             }).catch(function (error) {
                 console.log(error);
             });
@@ -44899,7 +44901,7 @@ var render = function() {
                     {
                       key: index,
                       staticClass: "form-group",
-                      staticStyle: { "margin-bottom": "40px" }
+                      staticStyle: { "margin-top": "40px" }
                     },
                     [
                       _c("label", [_vm._v("First Name:")]),

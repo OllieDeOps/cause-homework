@@ -18,7 +18,7 @@
                     <div class="panel-heading">Add New Entries</div>
                     <div class="panel-body">
                         <form @submit.prevent="handleSubmit">
-                            <div v-for="(person, index) in people" :key="index" class="form-group" style="margin-bottom: 40px;">
+                            <div v-for="(person, index) in people" :key="index" class="form-group" style="margin-top: 40px;">
                                 <label>First Name:</label>
                                 <input v-model="people[index].first_name">
 
@@ -76,10 +76,10 @@
             handleSubmit() {
                 axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                     "data":this.people
-                }).then(function (response) {
+                }).then((response) => {
                     console.log(response)
                     this.showUpdatedEntries()
-                }).catch(function (error) {
+                }).catch((error) => {
                     console.log(error)
                 });
 
@@ -90,6 +90,7 @@
                     email:null,
                     secret:null
                 }]
+
             },
             showUpdatedEntries() {
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
