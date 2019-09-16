@@ -19,26 +19,20 @@
                     <div class="panel-body">
                         <form @submit.prevent="handleSubmit">
                             <div v-for="(entry, index) in entries" :key="index" class="entry" style="margin-bottom: 40px;">
-                                <label>
-                                    First Name:
-                                    <input v-model="first_name">
-                                </label>
-                                <label>
-                                    Last Name:
-                                    <input v-model="last_name">
-                                </label>
-                                <label>
-                                    Age:
-                                    <input v-model="age">
-                                </label>
-                                <label>
-                                    Email:
-                                    <input v-model="email">
-                                </label>
-                                <label>
-                                    Secret:
-                                    <input v-model="secret">
-                                </label>
+                                <label>First Name:</label>
+                                <input v-model="entries[index].first_name">
+
+                                <label>Last Name:</label>
+                                <input v-model="entries[index].last_name">
+
+                                <label>Age:</label>
+                                <input v-model="entries[index].age">
+
+                                <label>Email:</label>
+                                <input v-model="entries[index].email">
+
+                                <label>Secret:</label>
+                                <input v-model="entries[index].secret">
                             </div>
                             <button type="submit">Submit</button>
                         </form>
@@ -56,17 +50,12 @@
     export default {
         data () {
             return {
-                first_name: null,
-                last_name: null,
-                age: null,
-                email: null,
-                secret: null,
                 entries: [{
-                    "first_name":null,
-                    "last_name":null,
-                    "age":null,
-                    "email":null,
-                    "secret":null
+                    first_name:null,
+                    last_name:null,
+                    age:null,
+                    email:null,
+                    secret:null
                 }],
                 list: null
             }
@@ -74,26 +63,23 @@
         methods: {
             addEntry() {
                 this.entries.push({
-                    "first_name":null,
-                    "last_name":null,
-                    "age":null,
-                    "email":null,
-                    "secret":null
+                    first_name:null,
+                    last_name:null,
+                    age:null,
+                    email:null,
+                    secret:null
                 })
             },
             removeEntry() {
                 this.entries.pop()
             },
             handleSubmit() {
+                console.log({
+                    "data":this.entries
+                })
                 axios.post('http://dry-ocean-48302.herokuapp.com/api/data',
                 {
-                    "data":[{
-                        "first_name":this.first_name,
-                        "last_name":this.last_name,
-                        "age":this.age,
-                        "email":this.email,
-                        "secret":this.secret
-                    }]
+                    "data":this.entries
                 })
                 .then(function (response) {
                     console.log(response)

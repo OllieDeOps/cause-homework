@@ -44779,27 +44779,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            first_name: null,
-            last_name: null,
-            age: null,
-            email: null,
-            secret: null,
             entries: [{
-                "first_name": null,
-                "last_name": null,
-                "age": null,
-                "email": null,
-                "secret": null
+                first_name: null,
+                last_name: null,
+                age: null,
+                email: null,
+                secret: null
             }],
             list: null
         };
@@ -44808,25 +44797,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         addEntry: function addEntry() {
             this.entries.push({
-                "first_name": null,
-                "last_name": null,
-                "age": null,
-                "email": null,
-                "secret": null
+                first_name: null,
+                last_name: null,
+                age: null,
+                email: null,
+                secret: null
             });
         },
         removeEntry: function removeEntry() {
             this.entries.pop();
         },
         handleSubmit: function handleSubmit() {
+            console.log({
+                "data": this.entries
+            });
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
-                "data": [{
-                    "first_name": this.first_name,
-                    "last_name": this.last_name,
-                    "age": this.age,
-                    "email": this.email,
-                    "secret": this.secret
-                }]
+                "data": this.entries
             }).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
@@ -44911,130 +44897,135 @@ var render = function() {
                       staticStyle: { "margin-bottom": "40px" }
                     },
                     [
-                      _c("label", [
-                        _vm._v(
-                          "\n                                First Name:\n                                "
-                        ),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.first_name,
-                              expression: "first_name"
-                            }
-                          ],
-                          domProps: { value: _vm.first_name },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.first_name = $event.target.value
-                            }
-                          }
-                        })
-                      ]),
+                      _c("label", [_vm._v("First Name:")]),
                       _vm._v(" "),
-                      _c("label", [
-                        _vm._v(
-                          "\n                                Last Name:\n                                "
-                        ),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.last_name,
-                              expression: "last_name"
-                            }
-                          ],
-                          domProps: { value: _vm.last_name },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.last_name = $event.target.value
-                            }
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].first_name,
+                            expression: "entries[index].first_name"
                           }
-                        })
-                      ]),
+                        ],
+                        domProps: { value: _vm.entries[index].first_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "first_name",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
                       _vm._v(" "),
-                      _c("label", [
-                        _vm._v(
-                          "\n                                Age:\n                                "
-                        ),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.age,
-                              expression: "age"
-                            }
-                          ],
-                          domProps: { value: _vm.age },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.age = $event.target.value
-                            }
-                          }
-                        })
-                      ]),
+                      _c("label", [_vm._v("Last Name:")]),
                       _vm._v(" "),
-                      _c("label", [
-                        _vm._v(
-                          "\n                                Email:\n                                "
-                        ),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.email,
-                              expression: "email"
-                            }
-                          ],
-                          domProps: { value: _vm.email },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.email = $event.target.value
-                            }
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].last_name,
+                            expression: "entries[index].last_name"
                           }
-                        })
-                      ]),
+                        ],
+                        domProps: { value: _vm.entries[index].last_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "last_name",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
                       _vm._v(" "),
-                      _c("label", [
-                        _vm._v(
-                          "\n                                Secret:\n                                "
-                        ),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.secret,
-                              expression: "secret"
-                            }
-                          ],
-                          domProps: { value: _vm.secret },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.secret = $event.target.value
-                            }
+                      _c("label", [_vm._v("Age:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].age,
+                            expression: "entries[index].age"
                           }
-                        })
-                      ])
+                        ],
+                        domProps: { value: _vm.entries[index].age },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "age",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("Email:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].email,
+                            expression: "entries[index].email"
+                          }
+                        ],
+                        domProps: { value: _vm.entries[index].email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "email",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("Secret:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].secret,
+                            expression: "entries[index].secret"
+                          }
+                        ],
+                        domProps: { value: _vm.entries[index].secret },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "secret",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
                     ]
                   )
                 }),
