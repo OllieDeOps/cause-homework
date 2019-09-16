@@ -44811,22 +44811,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                 "data": this.entries
             }).then(function (response) {
+                var _this = this;
+
                 console.log(response);
+                this.entries = [{
+                    first_name: null,
+                    last_name: null,
+                    age: null,
+                    email: null,
+                    secret: null
+                }];
+                axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
+                    return _this.list = response.data;
+                }).catch(function (error) {
+                    console.log(error);
+                });
             }).catch(function (error) {
                 console.log(error);
             });
         }
     },
-    updated: function updated() {
-        var _this = this;
-
-        axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-            return _this.list = response.data;
-        }).catch(function (error) {
-            console.log(error);
-        });
-    },
-    mounted: function mounted() {
+    created: function created() {
         var _this2 = this;
 
         axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
@@ -44894,8 +44899,8 @@ var render = function() {
                     "div",
                     {
                       key: index,
-                      staticClass: "form-group entry",
-                      staticStyle: { "margin-bottom": "40px" }
+                      staticClass: "form-group",
+                      staticStyle: { display: "flex", "margin-bottom": "40px" }
                     },
                     [
                       _c("label", [_vm._v("First Name:")]),
@@ -45031,27 +45036,31 @@ var render = function() {
                   )
                 }),
                 _vm._v(" "),
-                _c("button", { attrs: { type: "submit" } }, [_vm._v("Submit")])
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v("Submit")]
+                )
               ],
               2
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-secondary", on: { click: _vm.addEntry } },
+              [_vm._v("Add another entry to submit")]
             ),
             _vm._v(" "),
             _vm.entries.length > 1
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-primary",
+                    staticClass: "btn btn-tertiary",
                     on: { click: _vm.removeEntry }
                   },
                   [_vm._v("Remove Entry")]
                 )
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-secondary", on: { click: _vm.addEntry } },
-              [_vm._v("Add another entry to submit")]
-            )
+              : _vm._e()
           ])
         ])
       ])

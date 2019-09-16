@@ -18,7 +18,7 @@
                     <div class="panel-heading">List of Entries</div>
                     <div class="panel-body">
                         <form @submit.prevent="handleSubmit">
-                            <div v-for="(entry, index) in entries" :key="index" class="form-group entry" style="margin-bottom: 40px;">
+                            <div v-for="(entry, index) in entries" :key="index" class="form-group" style="display: flex; margin-bottom: 40px;">
                                 <label>First Name:</label>
                                 <input v-model="entries[index].first_name">
 
@@ -34,10 +34,10 @@
                                 <label>Secret:</label>
                                 <input v-model="entries[index].secret">
                             </div>
-                            <button type="submit">Submit</button>
+                            <button class="btn btn-primary" type="submit">Submit</button>
                         </form>
-                        <button v-if="entries.length > 1" v-on:click="removeEntry" class="btn btn-primary">Remove Entry</button>
                         <button v-on:click="addEntry" class="btn btn-secondary">Add another entry to submit</button>
+                        <button v-if="entries.length > 1" v-on:click="removeEntry" class="btn btn-tertiary">Remove Entry</button>
                     </div>
                 </div>
 
@@ -80,21 +80,25 @@
                 })
                 .then(function (response) {
                     console.log(response)
+                    this.entries = [{
+                        first_name:null,
+                        last_name:null,
+                        age:null,
+                        email:null,
+                        secret:null
+                    }]
+                    axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
+                        .then(response => (this.list = response.data))
+                        .catch(function (error) {
+                            console.log(error)
+                        });
                 })
                 .catch(function (error) {
                     console.log(error)
                 });
             }
         },
-        updated() {
-            axios
-                .get('http://dry-ocean-48302.herokuapp.com/api/data')
-                .then(response => (this.list = response.data))
-                .catch(function (error) {
-                    console.log(error)
-                });
-        },
-        mounted() {
+        created() {
             axios
                 .get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => (this.list = response.data))
