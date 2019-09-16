@@ -44820,12 +44820,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         }
     },
-    mounted: function mounted() {
+    updated: function updated() {
         var _this = this;
 
-        console.log('mounted');
         axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
             return _this.list = response.data;
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+    mounted: function mounted() {
+        var _this2 = this;
+
+        axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
+            return _this2.list = response.data;
         }).catch(function (error) {
             console.log(error);
         });
@@ -44861,7 +44869,7 @@ var render = function() {
                 return _c("li", { key: index }, [
                   _vm._v(
                     "\n                            " +
-                      _vm._s(item || _vm.pretty) +
+                      _vm._s(item || _vm.pretty(item)) +
                       "\n                        "
                   )
                 ])
