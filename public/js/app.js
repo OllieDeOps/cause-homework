@@ -44900,7 +44900,7 @@ var render = function() {
                     {
                       key: index,
                       staticClass: "form-group",
-                      staticStyle: { display: "flex", "margin-bottom": "40px" }
+                      staticStyle: { "margin-bottom": "40px" }
                     },
                     [
                       _c("label", [_vm._v("First Name:")]),

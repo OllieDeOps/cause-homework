@@ -18,7 +18,7 @@
                     <div class="panel-heading">List of Entries</div>
                     <div class="panel-body">
                         <form @submit.prevent="handleSubmit">
-                            <div v-for="(entry, index) in entries" :key="index" class="form-group" style="display: flex; margin-bottom: 40px;">
+                            <div v-for="(entry, index) in entries" :key="index" class="form-group" style="margin-bottom: 40px;">
                                 <label>First Name:</label>
                                 <input v-model="entries[index].first_name">
 
