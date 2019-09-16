@@ -44816,6 +44816,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
             });
 
+            this.showNewEntries();
+
             this.entries = [{
                 first_name: null,
                 last_name: null,
