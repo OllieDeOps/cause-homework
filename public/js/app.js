@@ -44779,6 +44779,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44790,7 +44803,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: null,
                 secret: null
             }],
-            list: null
+            list: null,
+            deleteByID: null
         };
     },
 
@@ -44813,7 +44827,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                 "data": this.people
             }).then(function (response) {
-                console.log(response);
                 _this.showUpdatedEntries();
             }).catch(function (error) {
                 console.log(error);
@@ -44832,7 +44845,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
                 _this2.list = response.data;
-                console.log("list", _this2.list);
             }).catch(function (error) {
                 console.log(error);
             });
@@ -44901,7 +44913,7 @@ var render = function() {
                     {
                       key: index,
                       staticClass: "form-group",
-                      staticStyle: { "margin-top": "40px" }
+                      staticStyle: { "margin-bottom": "30px" }
                     },
                     [
                       _c("label", [_vm._v("First Name:")]),
@@ -44911,21 +44923,17 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.people[index].first_name,
-                            expression: "people[index].first_name"
+                            value: person.first_name,
+                            expression: "person.first_name"
                           }
                         ],
-                        domProps: { value: _vm.people[index].first_name },
+                        domProps: { value: person.first_name },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.people[index],
-                              "first_name",
-                              $event.target.value
-                            )
+                            _vm.$set(person, "first_name", $event.target.value)
                           }
                         }
                       }),
@@ -44937,21 +44945,17 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.people[index].last_name,
-                            expression: "people[index].last_name"
+                            value: person.last_name,
+                            expression: "person.last_name"
                           }
                         ],
-                        domProps: { value: _vm.people[index].last_name },
+                        domProps: { value: person.last_name },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.people[index],
-                              "last_name",
-                              $event.target.value
-                            )
+                            _vm.$set(person, "last_name", $event.target.value)
                           }
                         }
                       }),
@@ -44963,21 +44967,17 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.people[index].age,
-                            expression: "people[index].age"
+                            value: person.age,
+                            expression: "person.age"
                           }
                         ],
-                        domProps: { value: _vm.people[index].age },
+                        domProps: { value: person.age },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.people[index],
-                              "age",
-                              $event.target.value
-                            )
+                            _vm.$set(person, "age", $event.target.value)
                           }
                         }
                       }),
@@ -44989,21 +44989,17 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.people[index].email,
-                            expression: "people[index].email"
+                            value: person.email,
+                            expression: "person.email"
                           }
                         ],
-                        domProps: { value: _vm.people[index].email },
+                        domProps: { value: person.email },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.people[index],
-                              "email",
-                              $event.target.value
-                            )
+                            _vm.$set(person, "email", $event.target.value)
                           }
                         }
                       }),
@@ -45015,21 +45011,17 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.people[index].secret,
-                            expression: "people[index].secret"
+                            value: person.secret,
+                            expression: "person.secret"
                           }
                         ],
-                        domProps: { value: _vm.people[index].secret },
+                        domProps: { value: person.secret },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.people[index],
-                              "secret",
-                              $event.target.value
-                            )
+                            _vm.$set(person, "secret", $event.target.value)
                           }
                         }
                       })
@@ -45069,6 +45061,68 @@ var render = function() {
                   [_vm._v("Remove Person From Entry")]
                 )
               : _vm._e()
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _vm._v("Delete Entries")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.handleDelete($event)
+                  }
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    staticStyle: { "margin-bottom": "30px" }
+                  },
+                  [
+                    _c("label", [_vm._v("ID Of Entry To Delete:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.deleteByID,
+                          expression: "deleteByID"
+                        }
+                      ],
+                      domProps: { value: _vm.deleteByID },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.deleteByID = $event.target.value
+                        }
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { "margin-bottom": "20px" },
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ]
+            )
           ])
         ])
       ])
