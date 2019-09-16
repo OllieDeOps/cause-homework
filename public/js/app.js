@@ -44837,7 +44837,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
-        this.showUpdatedEntries();
+        var _this2 = this;
+
+        axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
+            return _this2.list = response.data;
+        }).catch(function (error) {
+            console.log(error);
+        });
     },
 
     filters: {
