@@ -44808,35 +44808,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.entries.pop();
         },
         handleSubmit: function handleSubmit() {
-            $this = this;
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                 "data": this.entries
             }).then(function (response) {
-                var _this = this;
-
                 console.log(response);
-                $this.entries = [{
+                this.entries = [{
                     first_name: null,
                     last_name: null,
                     age: null,
                     email: null,
                     secret: null
                 }];
-                axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-                    return _this.list = response.data;
-                }).catch(function (error) {
-                    console.log(error);
-                });
             }).catch(function (error) {
                 console.log(error);
             });
         }
     },
     created: function created() {
-        var _this2 = this;
+        var _this = this;
 
         axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-            return _this2.list = response.data;
+            return _this.list = response.data;
         }).catch(function (error) {
             console.log(error);
         });

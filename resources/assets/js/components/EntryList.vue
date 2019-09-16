@@ -74,29 +74,22 @@
                 this.entries.pop()
             },
             handleSubmit() {
-                $this = this
-                axios.post('http://dry-ocean-48302.herokuapp.com/api/data',
-                {
+                axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                     "data":this.entries
-                })
-                .then(function (response) {
+                }).then(function (response) {
                     console.log(response)
-                    $this.entries = [{
+                    this.entries = [{
                         first_name:null,
                         last_name:null,
                         age:null,
                         email:null,
                         secret:null
                     }]
-                    axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
-                        .then(response => (this.list = response.data))
-                        .catch(function (error) {
-                            console.log(error)
-                        });
-                })
-                .catch(function (error) {
+                }).catch(function (error) {
                     console.log(error)
                 });
+
+
             }
         },
         created() {
