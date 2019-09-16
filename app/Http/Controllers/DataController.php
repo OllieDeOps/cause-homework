@@ -32,8 +32,6 @@ class DataController extends Controller
     }
 
     public function delete(Data $data) {
-        $deletedData = $data;
-        $data->delete();
-        return $deletedData;
+        return $data->id;
     }
 }
