@@ -11,9 +11,9 @@
                                 <pre>{{ item || pretty }}</pre>
                             </li>
                         </ul>
-                        <p v-if="waiting">
+                        <h2 v-if="waiting">
                             {{waitMSG}}
-                        </p>
+                        </h2>
                     </div>
                 </div>
 
@@ -22,20 +22,26 @@
                     <div class="panel-body">
                         <form @submit.prevent="handleSubmit">
                             <div v-for="(person, index) in people" :key="index" class="form-group" style="margin-bottom: 30px;">
-                                <label>First Name:</label>
-                                <input v-model="person.first_name">
-
-                                <label>Last Name:</label>
-                                <input v-model="person.last_name">
-
-                                <label>Age:</label>
-                                <input v-model="person.age">
-
-                                <label>Email:</label>
-                                <input v-model="person.email">
-
-                                <label>Secret:</label>
-                                <input v-model="person.secret">
+                                <div>
+                                    <label>First Name:</label>
+                                    <input v-model="person.first_name">
+                                </div>
+                                <div>
+                                    <label>Last Name:</label>
+                                    <input v-model="person.last_name">
+                                </div>
+                                <div>
+                                    <label>Age:</label>
+                                    <input v-model="person.age">
+                                </div>
+                                <div>
+                                    <label>Email:</label>
+                                    <input v-model="person.email">
+                                </div>
+                                <div>
+                                    <label>Secret:</label>
+                                    <input v-model="person.secret">
+                                </div>
                             </div>
                             <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit">Submit</button>
                         </form>

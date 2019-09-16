@@ -44796,6 +44796,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44916,7 +44922,7 @@ var render = function() {
             ),
             _vm._v(" "),
             _vm.waiting
-              ? _c("p", [
+              ? _c("h2", [
                   _vm._v(
                     "\n                        " +
                       _vm._s(_vm.waitMSG) +
@@ -44953,115 +44959,129 @@ var render = function() {
                       staticStyle: { "margin-bottom": "30px" }
                     },
                     [
-                      _c("label", [_vm._v("First Name:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: person.first_name,
-                            expression: "person.first_name"
-                          }
-                        ],
-                        domProps: { value: person.first_name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", [
+                        _c("label", [_vm._v("First Name:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: person.first_name,
+                              expression: "person.first_name"
                             }
-                            _vm.$set(person, "first_name", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("label", [_vm._v("Last Name:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: person.last_name,
-                            expression: "person.last_name"
-                          }
-                        ],
-                        domProps: { value: person.last_name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          ],
+                          domProps: { value: person.first_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                person,
+                                "first_name",
+                                $event.target.value
+                              )
                             }
-                            _vm.$set(person, "last_name", $event.target.value)
                           }
-                        }
-                      }),
+                        })
+                      ]),
                       _vm._v(" "),
-                      _c("label", [_vm._v("Age:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: person.age,
-                            expression: "person.age"
-                          }
-                        ],
-                        domProps: { value: person.age },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", [
+                        _c("label", [_vm._v("Last Name:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: person.last_name,
+                              expression: "person.last_name"
                             }
-                            _vm.$set(person, "age", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("label", [_vm._v("Email:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: person.email,
-                            expression: "person.email"
-                          }
-                        ],
-                        domProps: { value: person.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          ],
+                          domProps: { value: person.last_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(person, "last_name", $event.target.value)
                             }
-                            _vm.$set(person, "email", $event.target.value)
                           }
-                        }
-                      }),
+                        })
+                      ]),
                       _vm._v(" "),
-                      _c("label", [_vm._v("Secret:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: person.secret,
-                            expression: "person.secret"
-                          }
-                        ],
-                        domProps: { value: person.secret },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", [
+                        _c("label", [_vm._v("Age:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: person.age,
+                              expression: "person.age"
                             }
-                            _vm.$set(person, "secret", $event.target.value)
+                          ],
+                          domProps: { value: person.age },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(person, "age", $event.target.value)
+                            }
                           }
-                        }
-                      })
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("label", [_vm._v("Email:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: person.email,
+                              expression: "person.email"
+                            }
+                          ],
+                          domProps: { value: person.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(person, "email", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("label", [_vm._v("Secret:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: person.secret,
+                              expression: "person.secret"
+                            }
+                          ],
+                          domProps: { value: person.secret },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(person, "secret", $event.target.value)
+                            }
+                          }
+                        })
+                      ])
                     ]
                   )
                 }),
