@@ -8,7 +8,7 @@
                     <div class="panel-body">
                         <ul>
                             <li v-for="(item, index) in list" :key="index">
-                                {{ item || pretty }}
+                                {{ item || pretty(item) }}
                             </li>
                         </ul>
                     </div>
@@ -89,8 +89,15 @@
                 });
             }
         },
+        updated() {
+            axios
+                .get('http://dry-ocean-48302.herokuapp.com/api/data')
+                .then(response => (this.list = response.data))
+                .catch(function (error) {
+                    console.log(error)
+                });
+        },
         mounted() {
-            console.log('mounted')
             axios
                 .get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => (this.list = response.data))
