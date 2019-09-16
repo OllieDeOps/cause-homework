@@ -30,4 +30,8 @@ class DataController extends Controller
     public function fetch() {
         return Data::all();
     }
+
+    public function delete() {
+        //
+    }
 }
