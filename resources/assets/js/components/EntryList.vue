@@ -10,10 +10,10 @@
                             <li v-for="(item, index) in list" :key="index">
                                 <pre>{{ item || pretty }}</pre>
                             </li>
-                            <li v-if="waiting">
-                                UPDATING DATA...
-                            </li>
                         </ul>
+                        <p v-if="waiting">
+                            FETCHING DATA...
+                        </p>
                     </div>
                 </div>
 
@@ -132,6 +132,7 @@
             }
         },
         created() {
+            this.waiting = true
             this.showUpdatedEntries()
         },
         filters: {

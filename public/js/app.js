@@ -44869,6 +44869,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
+        this.waiting = true;
         this.showUpdatedEntries();
     },
 
@@ -44898,23 +44899,21 @@ var render = function() {
           _c("div", { staticClass: "panel-body" }, [
             _c(
               "ul",
-              [
-                _vm._l(_vm.list, function(item, index) {
-                  return _c("li", { key: index }, [
-                    _c("pre", [_vm._v(_vm._s(item || _vm.pretty))])
-                  ])
-                }),
-                _vm._v(" "),
-                _vm.waiting
-                  ? _c("li", [
-                      _vm._v(
-                        "\n                            FETCHING DATA...\n                        "
-                      )
-                    ])
-                  : _vm._e()
-              ],
-              2
-            )
+              _vm._l(_vm.list, function(item, index) {
+                return _c("li", { key: index }, [
+                  _c("pre", [_vm._v(_vm._s(item || _vm.pretty))])
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _vm.waiting
+              ? _c("p", [
+                  _vm._v(
+                    "\n                        UPDATING DATA...\n                    "
+                  )
+                ])
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
