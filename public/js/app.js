@@ -44808,9 +44808,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.entries.pop();
         },
         handleSubmit: function handleSubmit() {
-            console.log({
-                "data": this.entries
-            });
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                 "data": this.entries
             }).then(function (response) {
@@ -44867,11 +44864,7 @@ var render = function() {
               "ul",
               _vm._l(_vm.list, function(item, index) {
                 return _c("li", { key: index }, [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(item || _vm.pretty(item)) +
-                      "\n                        "
-                  )
+                  _c("pre", [_vm._v(_vm._s(item || _vm.pretty))])
                 ])
               }),
               0
@@ -44901,7 +44894,7 @@ var render = function() {
                     "div",
                     {
                       key: index,
-                      staticClass: "entry",
+                      staticClass: "form-group entry",
                       staticStyle: { "margin-bottom": "40px" }
                     },
                     [
@@ -45044,14 +45037,21 @@ var render = function() {
             ),
             _vm._v(" "),
             _vm.entries.length > 1
-              ? _c("button", { on: { click: _vm.removeEntry } }, [
-                  _vm._v("Remove Entry")
-                ])
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: { click: _vm.removeEntry }
+                  },
+                  [_vm._v("Remove Entry")]
+                )
               : _vm._e(),
             _vm._v(" "),
-            _c("button", { on: { click: _vm.addEntry } }, [
-              _vm._v("Add another entry to submit")
-            ])
+            _c(
+              "button",
+              { staticClass: "btn btn-secondary", on: { click: _vm.addEntry } },
+              [_vm._v("Add another entry to submit")]
+            )
           ])
         ])
       ])
