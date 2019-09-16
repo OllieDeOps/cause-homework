@@ -44795,6 +44795,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44809,7 +44810,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             list: null,
             deleteByID: null,
             waiting: true,
-            waitMSG: "FETCHING DATA..."
+            waitMSG: "FETCHING DATA...",
+            invalidID: false
         };
     },
 
@@ -44850,15 +44852,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         handleDelete: function handleDelete() {
             var _this2 = this;
 
-            this.waiting = true;
-            this.waitMSG = "UPDATING DATA...";
-            axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID).then(function (response) {
-                _this2.showUpdatedEntries();
-            }).catch(function (error) {
-                console.log(error);
-            });
-
-            this.deleteByID = null;
+            if (this.deleteByID !== 1) {
+                this.waiting = true;
+                this.waitMSG = "UPDATING DATA...";
+                axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID).then(function (response) {
+                    _this2.showUpdatedEntries();
+                }).catch(function (error) {
+                    console.log(error);
+                });
+                this.deleteByID = null;
+            } else {
+                this.invalidID = true;
+            }
         },
         showUpdatedEntries: function showUpdatedEntries() {
             var _this3 = this;
@@ -45111,6 +45116,10 @@ var render = function() {
                 }
               },
               [
+                _vm.invalidID
+                  ? _c("span", [_vm._v("Cannot Delete That Record")])
+                  : _vm._e(),
+                _vm._v(" "),
                 _c(
                   "div",
                   {

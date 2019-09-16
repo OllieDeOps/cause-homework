@@ -48,6 +48,7 @@
                     <div class="panel-heading">Delete Entry</div>
                     <div class="panel-body">
                         <form @submit.prevent="handleDelete">
+                            <span v-if="invalidID">Cannot Delete That Record</span>
                             <div class="form-group" style="margin-bottom: 30px;">
                                 <label>ID Of Entry To Delete:</label>
                                 <input v-model="deleteByID">
@@ -76,7 +77,8 @@
                 list: null,
                 deleteByID: null,
                 waiting: true,
-                waitMSG: "FETCHING DATA..."
+                waitMSG: "FETCHING DATA...",
+                invalidID: false
             }
         },
         methods: {
@@ -112,16 +114,20 @@
                 }]
             },
             handleDelete() {
-                this.waiting = true
-                this.waitMSG = "UPDATING DATA..."
-                axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID)
-                .then(response => {
-                    this.showUpdatedEntries()
-                }).catch(error => {
-                    console.log(error)
-                });
+                if (this.deleteByID !== 1) {
+                    this.waiting = true
+                    this.waitMSG = "UPDATING DATA..."
+                    axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID)
+                    .then(response => {
+                        this.showUpdatedEntries()
+                    }).catch(error => {
+                        console.log(error)
+                    });
+                    this.deleteByID = null  
+                } else {
+                    this.invalidID = true
+                }
 
-                this.deleteByID = null
             },
             showUpdatedEntries() {
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
