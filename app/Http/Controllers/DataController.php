@@ -27,7 +27,7 @@ class DataController extends Controller
         $data->emails = json_encode($emails);
         $data->request_ip = request()->ip();
         $data->save();
-        return $data;
+        return response()->json($data, 201);
     }
 
     public function fetch() {
@@ -36,6 +36,6 @@ class DataController extends Controller
 
     public function delete(Data $data) {
         $data->delete();
-        return;
+        return response()->json(null, 204);
     }
 }

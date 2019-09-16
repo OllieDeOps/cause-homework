@@ -20,6 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('data', 'DataController@store');
-Route::get('data', 'DataController@fetch');
-Route::delete('data/{data}', 'DataController@delete');
+Route::post('data', 'DataController@store')->name('data.store');
+Route::get('data', 'DataController@fetch')->name('data.fetch');
+Route::delete('data/{data}', 'DataController@delete')->name('data.delete');
