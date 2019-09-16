@@ -105,7 +105,7 @@
                 }]
             },
             handleDelete() {
-                axios.delete('http://dry-ocean-48302.herokuapp.com/api/data')
+                axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + deleteByID)
                 .then(response => {
                     this.showUpdatedEntries()
                 }).catch(error => {
@@ -113,7 +113,7 @@
                 });
             },
             showUpdatedEntries() {
-                axios.get('http://dry-ocean-48302.herokuapp.com/api/data/' + deleteByID)
+                axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => {
                     this.list = response.data
                 })
