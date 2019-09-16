@@ -4,7 +4,7 @@
             <div class="col-md-8 col-md-offset-2">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">List of Entries</div>
+                    <div class="panel-heading">Entries In Database</div>
                     <div class="panel-body">
                         <ul>
                             <li v-for="(item, index) in list" :key="index">
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">List of Entries</div>
+                    <div class="panel-heading">Add New Entries</div>
                     <div class="panel-body">
                         <form @submit.prevent="handleSubmit">
                             <div v-for="(entry, index) in entries" :key="index" class="form-group" style="margin-bottom: 40px;">
@@ -74,13 +74,14 @@
                 this.entries.pop()
             },
             handleSubmit() {
+                $this = this
                 axios.post('http://dry-ocean-48302.herokuapp.com/api/data',
                 {
                     "data":this.entries
                 })
                 .then(function (response) {
                     console.log(response)
-                    this.entries = [{
+                    $this.entries = [{
                         first_name:null,
                         last_name:null,
                         age:null,

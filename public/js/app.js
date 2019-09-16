@@ -44808,13 +44808,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.entries.pop();
         },
         handleSubmit: function handleSubmit() {
+            $this = this;
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                 "data": this.entries
             }).then(function (response) {
                 var _this = this;
 
                 console.log(response);
-                this.entries = [{
+                $this.entries = [{
                     first_name: null,
                     last_name: null,
                     age: null,
@@ -44861,7 +44862,7 @@ var render = function() {
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
-            _vm._v("List of Entries")
+            _vm._v("Entries In Database")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
@@ -44879,7 +44880,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
-            _vm._v("List of Entries")
+            _vm._v("Add New Entries")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
