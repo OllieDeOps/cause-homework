@@ -10,6 +10,9 @@
                             <li v-for="(item, index) in list" :key="index">
                                 <pre>{{ item || pretty }}</pre>
                             </li>
+                            <li v-if="waiting">
+                                UPDATING DATA...
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -71,7 +74,8 @@
                     secret:null
                 }],
                 list: null,
-                deleteByID: null
+                deleteByID: null,
+                waiting: true
             }
         },
         methods: {
@@ -88,6 +92,7 @@
                 this.people.pop()
             },
             handleSubmit() {
+                this.waiting = true
                 axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                     "data":this.people
                 }).then(response => {
@@ -105,17 +110,21 @@
                 }]
             },
             handleDelete() {
+                this.waiting = true
                 axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID)
                 .then(response => {
                     this.showUpdatedEntries()
                 }).catch(error => {
                     console.log(error)
                 });
+
+                this.deleteByID = null
             },
             showUpdatedEntries() {
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => {
                     this.list = response.data
+                    this.waiting = false
                 })
                 .catch(error => {
                     console.log(error)

@@ -44792,6 +44792,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44804,7 +44807,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 secret: null
             }],
             list: null,
-            deleteByID: null
+            deleteByID: null,
+            waiting: true
         };
     },
 
@@ -44824,6 +44828,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         handleSubmit: function handleSubmit() {
             var _this = this;
 
+            this.waiting = true;
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                 "data": this.people
             }).then(function (response) {
@@ -44843,17 +44848,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         handleDelete: function handleDelete() {
             var _this2 = this;
 
+            this.waiting = true;
             axios.delete('http://dry-ocean-48302.herokuapp.com/api/data/' + this.deleteByID).then(function (response) {
                 _this2.showUpdatedEntries();
             }).catch(function (error) {
                 console.log(error);
             });
+
+            this.deleteByID = null;
         },
         showUpdatedEntries: function showUpdatedEntries() {
             var _this3 = this;
 
             axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
                 _this3.list = response.data;
+                _this3.waiting = false;
             }).catch(function (error) {
                 console.log(error);
             });
@@ -44889,12 +44898,22 @@ var render = function() {
           _c("div", { staticClass: "panel-body" }, [
             _c(
               "ul",
-              _vm._l(_vm.list, function(item, index) {
-                return _c("li", { key: index }, [
-                  _c("pre", [_vm._v(_vm._s(item || _vm.pretty))])
-                ])
-              }),
-              0
+              [
+                _vm._l(_vm.list, function(item, index) {
+                  return _c("li", { key: index }, [
+                    _c("pre", [_vm._v(_vm._s(item || _vm.pretty))])
+                  ])
+                }),
+                _vm._v(" "),
+                _vm.waiting
+                  ? _c("li", [
+                      _vm._v(
+                        "\n                            FETCHING DATA...\n                        "
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              2
             )
           ])
         ]),
