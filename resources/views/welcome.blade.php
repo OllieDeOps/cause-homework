@@ -46,7 +46,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 40px;
             }
 
             .links > a {
@@ -78,7 +78,7 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-sm">
+                <div class="title m-b-md">
                     Morgan Espitia's CauseLabs Homework
                 </div>
 
