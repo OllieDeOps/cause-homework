@@ -44878,137 +44878,145 @@ var render = function() {
             },
             [
               _vm._l(_vm.entries, function(entry, index) {
-                return _c("div", { key: index, staticClass: "entry" }, [
-                  _c("label", [
-                    _vm._v(
-                      "\n                            First Name:\n                            "
-                    ),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.first_name,
-                          expression: "first_name"
-                        }
-                      ],
-                      attrs: { placeholder: "edit me" },
-                      domProps: { value: _vm.first_name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                return _c(
+                  "div",
+                  {
+                    key: index,
+                    staticClass: "entry",
+                    staticStyle: { "margin-bottom": "40px" }
+                  },
+                  [
+                    _c("label", [
+                      _vm._v(
+                        "\n                            First Name:\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.first_name,
+                            expression: "first_name"
                           }
-                          _vm.first_name = $event.target.value
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("label", [
-                    _vm._v(
-                      "\n                            Last Name:\n                            "
-                    ),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.last_name,
-                          expression: "last_name"
-                        }
-                      ],
-                      attrs: { placeholder: "edit me" },
-                      domProps: { value: _vm.last_name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        ],
+                        attrs: { placeholder: "edit me" },
+                        domProps: { value: _vm.first_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.first_name = $event.target.value
                           }
-                          _vm.last_name = $event.target.value
                         }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("label", [
-                    _vm._v(
-                      "\n                            Age:\n                            "
-                    ),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.age,
-                          expression: "age"
-                        }
-                      ],
-                      attrs: { placeholder: "edit me" },
-                      domProps: { value: _vm.age },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\n                            Last Name:\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.last_name,
+                            expression: "last_name"
                           }
-                          _vm.age = $event.target.value
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("label", [
-                    _vm._v(
-                      "\n                            Email:\n                            "
-                    ),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.email,
-                          expression: "email"
-                        }
-                      ],
-                      attrs: { placeholder: "edit me" },
-                      domProps: { value: _vm.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        ],
+                        attrs: { placeholder: "edit me" },
+                        domProps: { value: _vm.last_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.last_name = $event.target.value
                           }
-                          _vm.email = $event.target.value
                         }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("label", [
-                    _vm._v(
-                      "\n                            Secret:\n                            "
-                    ),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.secret,
-                          expression: "secret"
-                        }
-                      ],
-                      attrs: { placeholder: "edit me" },
-                      domProps: { value: _vm.secret },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\n                            Age:\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.age,
+                            expression: "age"
                           }
-                          _vm.secret = $event.target.value
+                        ],
+                        attrs: { placeholder: "edit me" },
+                        domProps: { value: _vm.age },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.age = $event.target.value
+                          }
                         }
-                      }
-                    })
-                  ])
-                ])
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\n                            Email:\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.email,
+                            expression: "email"
+                          }
+                        ],
+                        attrs: { placeholder: "edit me" },
+                        domProps: { value: _vm.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.email = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\n                            Secret:\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.secret,
+                            expression: "secret"
+                          }
+                        ],
+                        attrs: { placeholder: "edit me" },
+                        domProps: { value: _vm.secret },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.secret = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  ]
+                )
               }),
               _vm._v(" "),
               _c("button", { attrs: { type: "submit" } }, [_vm._v("Submit")])

@@ -14,7 +14,7 @@
                     </div>
 
                     <form @submit.prevent="handleSubmit">
-                        <div v-for="(entry, index) in entries" :key="index" class="entry">
+                        <div v-for="(entry, index) in entries" :key="index" class="entry" style="margin-bottom: 40px;">
                             <label>
                                 First Name:
                                 <input v-model="first_name" placeholder="edit me">
