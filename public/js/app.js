@@ -44812,11 +44812,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 "data": this.people
             }).then(function (response) {
                 console.log(response);
+                this.showUpdatedEntries();
             }).catch(function (error) {
                 console.log(error);
             });
-
-            this.showUpdatedEntries();
 
             this.people = [{
                 first_name: null,
@@ -44838,13 +44837,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
-        var _this2 = this;
-
-        axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-            return _this2.list = response.data;
-        }).catch(function (error) {
-            console.log(error);
-        });
+        this.showUpdatedEntries();
     },
 
     filters: {

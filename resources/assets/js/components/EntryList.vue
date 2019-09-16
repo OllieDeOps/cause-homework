@@ -78,11 +78,10 @@
                     "data":this.people
                 }).then(function (response) {
                     console.log(response)
+                    this.showUpdatedEntries()
                 }).catch(function (error) {
                     console.log(error)
                 });
-
-                this.showUpdatedEntries()
 
                 this.people = [{
                     first_name:null,
@@ -96,7 +95,7 @@
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => {
                     this.list = response.data
-                    console.log(this.list)
+                    console.log("list", this.list)
                 })
                 .catch(function (error) {
                     console.log(error)
@@ -104,11 +103,7 @@
             }
         },
         created() {
-            axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
-            .then(response => (this.list = response.data))
-            .catch(function (error) {
-                console.log(error)
-            });
+            this.showUpdatedEntries()
         },
         filters: {
             pretty: function(value) {
