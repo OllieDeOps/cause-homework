@@ -44792,38 +44792,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            entries: [{
+            people: [{
                 first_name: null,
                 last_name: null,
                 age: null,
                 email: null,
                 secret: null
             }],
+            deleteByID: null,
             list: null
         };
     },
 
     methods: {
-        addEntry: function addEntry() {
-            this.entries.push({
+        addPerson: function addPerson() {
+            this.people.push({
                 first_name: null,
                 last_name: null,
                 age: null,
@@ -44831,12 +44818,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 secret: null
             });
         },
-        removeEntry: function removeEntry() {
-            this.entries.pop();
+        removePerson: function removePerson() {
+            this.people.pop();
         },
         handleSubmit: function handleSubmit() {
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
-                "data": this.entries
+                "data": this.people
             }).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
@@ -44845,13 +44832,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.showNewEntries();
 
-            this.entries = [{
+            this.people = [{
                 first_name: null,
                 last_name: null,
                 age: null,
                 email: null,
                 secret: null
             }];
+        },
+        deleteEntry: function deleteEntry() {
+            console.log(this.deleteByID);
         },
         showNewEntries: function showNewEntries() {
             var _this = this;
@@ -44926,7 +44916,7 @@ var render = function() {
                 }
               },
               [
-                _vm._l(_vm.entries, function(entry, index) {
+                _vm._l(_vm.people, function(person, index) {
                   return _c(
                     "div",
                     {
@@ -44942,18 +44932,18 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.entries[index].first_name,
-                            expression: "entries[index].first_name"
+                            value: person[index].first_name,
+                            expression: "person[index].first_name"
                           }
                         ],
-                        domProps: { value: _vm.entries[index].first_name },
+                        domProps: { value: person[index].first_name },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.entries[index],
+                              person[index],
                               "first_name",
                               $event.target.value
                             )
@@ -44968,18 +44958,18 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.entries[index].last_name,
-                            expression: "entries[index].last_name"
+                            value: person[index].last_name,
+                            expression: "person[index].last_name"
                           }
                         ],
-                        domProps: { value: _vm.entries[index].last_name },
+                        domProps: { value: person[index].last_name },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.entries[index],
+                              person[index],
                               "last_name",
                               $event.target.value
                             )
@@ -44994,21 +44984,17 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.entries[index].age,
-                            expression: "entries[index].age"
+                            value: person[index].age,
+                            expression: "person[index].age"
                           }
                         ],
-                        domProps: { value: _vm.entries[index].age },
+                        domProps: { value: person[index].age },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.entries[index],
-                              "age",
-                              $event.target.value
-                            )
+                            _vm.$set(person[index], "age", $event.target.value)
                           }
                         }
                       }),
@@ -45020,18 +45006,18 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.entries[index].email,
-                            expression: "entries[index].email"
+                            value: person[index].email,
+                            expression: "person[index].email"
                           }
                         ],
-                        domProps: { value: _vm.entries[index].email },
+                        domProps: { value: person[index].email },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.entries[index],
+                              person[index],
                               "email",
                               $event.target.value
                             )
@@ -45046,18 +45032,18 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.entries[index].secret,
-                            expression: "entries[index].secret"
+                            value: person[index].secret,
+                            expression: "person[index].secret"
                           }
                         ],
-                        domProps: { value: _vm.entries[index].secret },
+                        domProps: { value: person[index].secret },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.entries[index],
+                              person[index],
                               "secret",
                               $event.target.value
                             )
@@ -45083,18 +45069,21 @@ var render = function() {
             _vm._v(" "),
             _c(
               "button",
-              { staticClass: "btn btn-secondary", on: { click: _vm.addEntry } },
-              [_vm._v("Add another entry to submit")]
+              {
+                staticClass: "btn btn-secondary",
+                on: { click: _vm.addPerson }
+              },
+              [_vm._v("Add Another Person To Entry")]
             ),
             _vm._v(" "),
-            _vm.entries.length > 1
+            _vm.people.length > 1
               ? _c(
                   "button",
                   {
                     staticClass: "btn btn-tertiary",
-                    on: { click: _vm.removeEntry }
+                    on: { click: _vm.removePerson }
                   },
-                  [_vm._v("Remove Entry")]
+                  [_vm._v("Remove Person From Entry")]
                 )
               : _vm._e()
           ])
@@ -45112,152 +45101,41 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.handleSubmit($event)
+                    return _vm.deleteEntry($event)
                   }
                 }
               },
               [
-                _vm._l(_vm.entries, function(entry, index) {
-                  return _c(
-                    "div",
-                    {
-                      key: index,
-                      staticClass: "form-group",
-                      staticStyle: { "margin-bottom": "40px" }
-                    },
-                    [
-                      _c("label", [_vm._v("First Name:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.entries[index].first_name,
-                            expression: "entries[index].first_name"
-                          }
-                        ],
-                        domProps: { value: _vm.entries[index].first_name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.entries[index],
-                              "first_name",
-                              $event.target.value
-                            )
-                          }
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    staticStyle: { "margin-bottom": "40px" }
+                  },
+                  [
+                    _c("label", [_vm._v("Entry ID:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.deleteByID,
+                          expression: "deleteByID"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("label", [_vm._v("Last Name:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.entries[index].last_name,
-                            expression: "entries[index].last_name"
+                      ],
+                      domProps: { value: _vm.deleteByID },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
                           }
-                        ],
-                        domProps: { value: _vm.entries[index].last_name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.entries[index],
-                              "last_name",
-                              $event.target.value
-                            )
-                          }
+                          _vm.deleteByID = $event.target.value
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("label", [_vm._v("Age:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.entries[index].age,
-                            expression: "entries[index].age"
-                          }
-                        ],
-                        domProps: { value: _vm.entries[index].age },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.entries[index],
-                              "age",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("label", [_vm._v("Email:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.entries[index].email,
-                            expression: "entries[index].email"
-                          }
-                        ],
-                        domProps: { value: _vm.entries[index].email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.entries[index],
-                              "email",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("label", [_vm._v("Secret:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.entries[index].secret,
-                            expression: "entries[index].secret"
-                          }
-                        ],
-                        domProps: { value: _vm.entries[index].secret },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.entries[index],
-                              "secret",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]
-                  )
-                }),
+                      }
+                    })
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -45266,28 +45144,10 @@ var render = function() {
                     staticStyle: { "margin-bottom": "20px" },
                     attrs: { type: "submit" }
                   },
-                  [_vm._v("Submit")]
+                  [_vm._v("Delete")]
                 )
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-secondary", on: { click: _vm.addEntry } },
-              [_vm._v("Add another entry to submit")]
-            ),
-            _vm._v(" "),
-            _vm.entries.length > 1
-              ? _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-tertiary",
-                    on: { click: _vm.removeEntry }
-                  },
-                  [_vm._v("Remove Entry")]
-                )
-              : _vm._e()
+              ]
+            )
           ])
         ])
       ])
