@@ -34,7 +34,7 @@
                                 <label>Secret:</label>
                                 <input v-model="entries[index].secret">
                             </div>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit">Submit</button>
                         </form>
                         <button v-on:click="addEntry" class="btn btn-secondary">Add another entry to submit</button>
                         <button v-if="entries.length > 1" v-on:click="removeEntry" class="btn btn-tertiary">Remove Entry</button>
@@ -89,6 +89,13 @@
                     email:null,
                     secret:null
                 }]
+            },
+            showNewEntries() {
+                axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
+                .then(response => (this.list = response.data))
+                .catch(function (error) {
+                    console.log(error)
+                });
             }
         },
         created() {
