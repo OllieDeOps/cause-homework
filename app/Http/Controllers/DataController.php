@@ -20,14 +20,7 @@ class DataController extends Controller
             array_push($prsdData, $entry);
         }
 
-        function cmp($a, $b)
-        {
-            if ($a["age"] == $b["age"]) {
-                return 0;
-            }
-            return ($a["age"] < $b["age"]) ? -1 : 1;
-        }
-        usort($prsdData, "cmp");
+        usort($prsdData, function ($a, $b) { return -($a["age"] <=> $b["age"]); });       
 
         $data = new Data;
         $data->data = $prsdData;
