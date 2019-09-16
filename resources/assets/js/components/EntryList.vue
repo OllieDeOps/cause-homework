@@ -20,37 +20,24 @@
                         <form @submit.prevent="handleSubmit">
                             <div v-for="(person, index) in people" :key="index" class="form-group" style="margin-bottom: 40px;">
                                 <label>First Name:</label>
-                                <input v-model="person[index].first_name">
+                                <input v-model="people[index].first_name">
 
                                 <label>Last Name:</label>
-                                <input v-model="person[index].last_name">
+                                <input v-model="people[index].last_name">
 
                                 <label>Age:</label>
-                                <input v-model="person[index].age">
+                                <input v-model="people[index].age">
 
                                 <label>Email:</label>
-                                <input v-model="person[index].email">
+                                <input v-model="people[index].email">
 
                                 <label>Secret:</label>
-                                <input v-model="person[index].secret">
+                                <input v-model="people[index].secret">
                             </div>
                             <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit">Submit</button>
                         </form>
                         <button v-on:click="addPerson" class="btn btn-secondary">Add Another Person To Entry</button>
-                        <button v-if="people.length > 1" v-on:click="removePerson" class="btn btn-tertiary">Remove Person From Entry</button>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">Delete An Entry</div>
-                    <div class="panel-body">
-                        <form @submit.prevent="deleteEntry">
-                            <div class="form-group" style="margin-bottom: 40px;">
-                                <label>Entry ID:</label>
-                                <input v-model="deleteByID">
-                            </div>
-                            <button class="btn btn-primary" style="margin-bottom: 20px;" type="submit">Delete</button>
-                        </form>
+                        <button v-if="entries.length > 1" v-on:click="removePerson" class="btn btn-tertiary">Remove Person From Entry</button>
                     </div>
                 </div>
 
@@ -70,7 +57,6 @@
                     email:null,
                     secret:null
                 }],
-                deleteByID: null,
                 list: null
             }
         },
@@ -90,9 +76,9 @@
             handleSubmit() {
                 axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
                     "data":this.people
-                }).then(response => {
+                }).then(function (response) {
                     console.log(response)
-                }).catch(error => {
+                }).catch(function (error) {
                     console.log(error)
                 });
 
@@ -106,13 +92,10 @@
                     secret:null
                 }]
             },
-            deleteEntry() {
-                console.log(this.deleteByID)
-            },
             showNewEntries() {
                 axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
                 .then(response => (this.list = response.data))
-                .catch(error => {
+                .catch(function (error) {
                     console.log(error)
                 });
             }
@@ -120,7 +103,7 @@
         created() {
             axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
             .then(response => (this.list = response.data))
-            .catch(error => {
+            .catch(function (error) {
                 console.log(error)
             });
         },
