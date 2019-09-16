@@ -44655,7 +44655,7 @@ exports = module.exports = __webpack_require__(42)(false);
 
 
 // module
-exports.push([module.i, "\n.details[data-v-59d5cc09] {\n    position: absolute;\n    left: 120px;\n}\n", ""]);
+exports.push([module.i, "\n.details[data-v-59d5cc09] {\n    position: absolute;\n    left: 120px;\n    width: 300px;\n}\n", ""]);
 
 // exports
 

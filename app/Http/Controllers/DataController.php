@@ -19,6 +19,16 @@ class DataController extends Controller
             $entry["secret"] = Hash::make($entry["secret"]);
             array_push($prsdData, $entry);
         }
+
+        function cmp($a, $b)
+        {
+            if ($a["age"] == $b["age"]) {
+                return 0;
+            }
+            return ($a["age"] < $b["age"]) ? -1 : 1;
+        }
+        usort($prsdData, "cmp");
+
         $data = new Data;
         $data->data = $prsdData;
         $data->emails = json_encode($emails);
