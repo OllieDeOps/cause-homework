@@ -31,8 +31,8 @@ class DataController extends Controller
         return Data::all();
     }
 
-    public function delete(Request $request) {
-        App\Data::destroy(deleteByID);
-        return $request->deleteByID;
+    public function delete(Data $data) {
+        //Data::destroy(deleteByID);
+        return $data;
     }
 }

@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Delete Entries</div>
+                    <div class="panel-heading">Delete Entry</div>
                     <div class="panel-body">
                         <form @submit.prevent="handleDelete">
                             <div class="form-group" style="margin-bottom: 30px;">
@@ -105,16 +105,15 @@
                 }]
             },
             handleDelete() {
-                axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
-                    "deleteByID":this.deleteByID
-                }).then(response => {
+                axios.delete('http://dry-ocean-48302.herokuapp.com/api/data')
+                .then(response => {
                     this.showUpdatedEntries()
                 }).catch(error => {
                     console.log(error)
                 });
             },
             showUpdatedEntries() {
-                axios.get('http://dry-ocean-48302.herokuapp.com/api/data')
+                axios.get('http://dry-ocean-48302.herokuapp.com/api/data/' + deleteByID)
                 .then(response => {
                     this.list = response.data
                 })
