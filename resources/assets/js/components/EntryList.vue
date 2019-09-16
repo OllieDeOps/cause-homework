@@ -78,18 +78,17 @@
                     "data":this.entries
                 }).then(function (response) {
                     console.log(response)
-                    this.entries = [{
-                        first_name:null,
-                        last_name:null,
-                        age:null,
-                        email:null,
-                        secret:null
-                    }]
                 }).catch(function (error) {
                     console.log(error)
                 });
 
-
+                this.entries = [{
+                    first_name:null,
+                    last_name:null,
+                    age:null,
+                    email:null,
+                    secret:null
+                }]
             }
         },
         created() {
