@@ -44779,6 +44779,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -44885,6 +44912,197 @@ var render = function() {
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
             _vm._v("Add New Entries")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.handleSubmit($event)
+                  }
+                }
+              },
+              [
+                _vm._l(_vm.entries, function(entry, index) {
+                  return _c(
+                    "div",
+                    {
+                      key: index,
+                      staticClass: "form-group",
+                      staticStyle: { "margin-bottom": "40px" }
+                    },
+                    [
+                      _c("label", [_vm._v("First Name:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].first_name,
+                            expression: "entries[index].first_name"
+                          }
+                        ],
+                        domProps: { value: _vm.entries[index].first_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "first_name",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("Last Name:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].last_name,
+                            expression: "entries[index].last_name"
+                          }
+                        ],
+                        domProps: { value: _vm.entries[index].last_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "last_name",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("Age:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].age,
+                            expression: "entries[index].age"
+                          }
+                        ],
+                        domProps: { value: _vm.entries[index].age },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "age",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("Email:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].email,
+                            expression: "entries[index].email"
+                          }
+                        ],
+                        domProps: { value: _vm.entries[index].email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "email",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("Secret:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.entries[index].secret,
+                            expression: "entries[index].secret"
+                          }
+                        ],
+                        domProps: { value: _vm.entries[index].secret },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.entries[index],
+                              "secret",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { "margin-bottom": "20px" },
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Submit")]
+                )
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-secondary", on: { click: _vm.addEntry } },
+              [_vm._v("Add another entry to submit")]
+            ),
+            _vm._v(" "),
+            _vm.entries.length > 1
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-tertiary",
+                    on: { click: _vm.removeEntry }
+                  },
+                  [_vm._v("Remove Entry")]
+                )
+              : _vm._e()
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _vm._v("Delete An Entry")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
