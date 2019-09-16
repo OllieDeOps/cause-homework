@@ -73,7 +73,7 @@
         },
         methods: {
             addEntry() {
-                entries.push({
+                this.entries.push({
                     "first_name":null,
                     "last_name":null,
                     "age":null,
@@ -82,7 +82,7 @@
                 })
             },
             removeEntry() {
-                entries.pop()
+                this.entries.pop()
             },
             handleSubmit() {
                 axios.post('http://dry-ocean-48302.herokuapp.com/api/data',

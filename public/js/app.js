@@ -44807,7 +44807,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         addEntry: function addEntry() {
-            entries.push({
+            this.entries.push({
                 "first_name": null,
                 "last_name": null,
                 "age": null,
@@ -44816,7 +44816,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         removeEntry: function removeEntry() {
-            entries.pop();
+            this.entries.pop();
         },
         handleSubmit: function handleSubmit() {
             axios.post('http://dry-ocean-48302.herokuapp.com/api/data', {
