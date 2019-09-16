@@ -44830,11 +44830,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.get('http://dry-ocean-48302.herokuapp.com/api/data').then(function (response) {
-                console.log(response);
-                _this.list = response.data;
+                return _this.list = response.data;
             }).catch(function (error) {
                 console.log(error);
             });
+            console.log(this.list);
         }
     },
     created: function created() {
